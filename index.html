@@ -230,6 +230,13 @@
       const srcFit = document.getElementById('sourceFit').value;
 
       const targetBrand = document.getElementById('targetBrand').value;
+      // Hide height toggle if target brand is not H&M
+const heightRow = document.getElementById('heightToggleRow');
+if (targetBrand === 'hm') {
+  heightRow.style.display = 'flex';
+} else {
+  heightRow.style.display = 'none';
+}
       const targetFit = document.getElementById('targetFit').value;
 
       // 1. Pick base chart
@@ -304,7 +311,7 @@
       }
 
       // 7. Update UI Elements
-      const displaySize = isLongCut ? `${bestSize}/L (Long)` : bestSize;
+      const displaySize = isLongCut ? `${bestSize} (Long)` : bestSize;
       document.getElementById('outputSize').textContent = displaySize;
 
       const brandTitle = BRAND_LABELS[targetBrand] || targetBrand;
