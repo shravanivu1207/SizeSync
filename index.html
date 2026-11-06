@@ -19,7 +19,7 @@
     <!-- Header -->
     <div class="text-center space-y-1">
       <h1 class="text-xl font-bold text-neutral-100 tracking-tight">Shirt Size Bridge</h1>
-      <p class="text-xs text-neutral-400">Direct size converter across Levi's, H&amp;M, USPA &amp; Peter England</p>
+      <p class="text-xs text-neutral-400">Direct size converter across Levi's, H&M, USPA, Peter England & Allen Solly</p>
     </div>
 
     <!-- Step 1: Source Brand, Size & Fit -->
@@ -32,6 +32,7 @@
           <option value="hm">H&amp;M</option>
           <option value="uspa">U.S. Polo Assn.</option>
           <option value="peter_england">Peter England</option>
+          <option value="allen_solly">Allen Solly</option>
         </select>
 
         <!-- Dynamic Size Tag -->
@@ -59,6 +60,7 @@
           <option value="levis">Levi's</option>
           <option value="uspa">U.S. Polo Assn.</option>
           <option value="peter_england">Peter England</option>
+          <option value="allen_solly">Allen Solly</option>
         </select>
 
         <select id="targetFit" onchange="runConversion()" class="bg-neutral-950 border border-neutral-800 rounded-xl px-3 py-2.5 text-sm text-neutral-200 focus:outline-none focus:border-neutral-500">
@@ -120,7 +122,8 @@
       levis: "Levi's",
       hm: "H&M",
       uspa: "U.S. Polo Assn.",
-      peter_england: "Peter England"
+      peter_england: "Peter England",
+      allen_solly: 'Allen Solly'
     };
 
     const CHARTS = {
@@ -164,7 +167,15 @@
         "42 (L)":      { min: 40.5, max: 42.5, mid: 41.5 },
         "44 (XL)":     { min: 42.6, max: 45.2, mid: 44.1 },
         "46 (XXL)":    { min: 45.5, max: 48.0, mid: 46.8 }
-      }
+      },
+      allen_solly: {
+      "38 (S)":       { min: 35.0, max: 37.0, mid: 36.3 },
+      "39 (M-Slim)":  { min: 37.1, max: 38.8, mid: 37.9 },
+      "40 (M-Reg)":   { min: 38.9, max: 40.7, mid: 39.5 },
+      "42 (L)":       { min: 40.8, max: 43.0, mid: 42.0 },
+      "44 (XL)":      { min: 43.1, max: 45.5, mid: 44.2 },
+      "46 (XXL)":     { min: 45.6, max: 48.0, mid: 46.7 }
+    },
     };
 
     let isTall = false;
