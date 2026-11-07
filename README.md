@@ -1,6 +1,11 @@
-# Cross-Brand Apparel Sizing Engine (Version 1.0)
+# SizeSync (Version 1.0)
 
 A lightweight, deterministic web utility designed to solve apparel sizing inconsistencies across major clothing retail brands. The application maps proprietary brand metrics (such as flat half-chest measurements and collar scales) to a normalized "To-Fit Body Chest" standard, providing cross-brand size recommendations for men's woven button-down shirts.
+
+---
+
+## Live Demo
+Check out the live application: **[https://shravanivu1207.github.io/SizeSync/](https://shravanivu1207.github.io/SizeSync/)**
 
 ---
 
@@ -46,4 +51,4 @@ Instead of requiring physical measurements or invasive body profiling questionna
 
 1. Clone the repository:
    ```bash
-   git clone [https://github.com/your-username/apparel-sizing-engine.git](https://github.com/your-username/apparel-sizing-engine.git)
+   git clone [https://github.com/shravanivu1207/SizeSync.git](https://github.com/shravanivu1207/SizeSync.git)
