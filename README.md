@@ -1,54 +1,49 @@
-# SizeSync — Shirt Size Bridge 👕
+# Cross-Brand Apparel Sizing Engine (Version 1.0)
 
-> Direct, zero-tape size converter across major menswear brands (Levi's, H&M, U.S. Polo Assn., Peter England).
-
-🔗 **Live Demo:** [https://shravanivu1207.github.io/SizeSync/](https://shravanivu1207.github.io/SizeSync/)
+A lightweight, deterministic web utility designed to solve apparel sizing inconsistencies across major clothing retail brands. The application maps proprietary brand metrics (such as flat half-chest measurements and collar scales) to a normalized "To-Fit Body Chest" standard, providing cross-brand size recommendations for men's woven button-down shirts.
 
 ---
 
-## 💡 The Problem
+## The Problem
+E-commerce fashion sizing suffers from inconsistent reference standards:
+- Some brands report **body circumference** (e.g., to-fit 38"–40").
+- Others report **flat garment dimensions** (e.g., pit-to-pit half-chest in cm).
+- Formal labels rely on **numeric collar neck sizing** (e.g., 38, 39, 40, 42).
 
-Online apparel sizing is broken by **vanity sizing** and **inconsistent measurement grading**:
-- A Medium in **Levi's** (American classic drape) fits noticeably larger than a Medium in **H&M** (European slim cut).
-- Formal brands like **Peter England** use numbered collar sizing (`38, 39, 40, 42`), leaving shoppers guessing their letter equivalents.
-- Asking customers to retrieve a tailor's tape measure introduces high drop-off and friction.
-
----
-
-## ⚡ The Solution: "Closet-Match" Architecture
-
-SizeSync avoids physical measuring tapes entirely:
-1. **Body-Anchor Engine:** The user inputs an existing, well-fitting shirt (`Brand` + `Size` + `Fit`).
-2. **Reverse Garment Ease Deduction:** The engine computes the wearer's estimated bare-chest circumference by stripping out garment wearing ease allowances.
-3. **Target Calibration:** The anchor measurement is projected onto the target brand's official pattern grading to determine the optimal tag size.
-4. **Fit Confidence Gauge:** Shows where the user sits within the recommended size bracket (Roomy/Lean, Optimal Center, or Borderline Snug).
+Shoppers typically need a tape measure or must fill out lengthy multi-step surveys to find their size, resulting in sizing confusion and high return rates.
 
 ---
 
-## 🏷️ Supported Brands
-
-| Brand | Origin / Cut Style | Sizing Scheme |
-|---|---|---|
-| **Levi's** | American Classic Drape | Alpha (`XS` – `XXL`) |
-| **H&M** | European Tailored Silhouette | Alpha (`XS` – `XXL`) + Height Cut |
-| **U.S. Polo Assn.** | Athletic Broad Chest | Alpha / Metric Collar (`38` – `46`) |
-| **Peter England** | Formal Slim / Standard Torso | Indian Collar Scale (`36` – `46`) |
+## Engineering Solution
+Instead of requiring physical measurements or invasive body profiling questionnaires, this engine operates as a direct brand-to-brand converter:
+1. **Reference Size Input:** Accepts a known, well-fitting shirt size from a reference brand.
+2. **Intermediate Normalization:** Resolves the source tag to a normalized **To-Fit Body Chest Midpoint** (in inches) by accounting for woven fabric ease.
+3. **Fit Ease Translation:** Adjusts the target chest profile based on the selected silhouette (`Slim`, `Regular`, `Relaxed`).
+4. **Target Matching:** Maps the target body chest to the destination brand's sizing intervals and displays fit confidence (sweet spot vs. borderline/snug edge).
 
 ---
 
-## 🛠️ Tech Stack
+## Supported Brands (Version 1.0)
 
-- **Frontend:** Vanilla HTML5, JavaScript (ES6+)
-- **Styling:** Tailwind CSS (Utility-first styling, Mobile-First Dark Theme)
-- **Deployment:** GitHub Pages
+| Brand | Measurement Standard | Size System |
+| :--- | :--- | :--- |
+| **Levi's** | Garment Half-Chest / Body Range | Alpha (`XS` – `XXL`) |
+| **H&M** | European Body Chest & Length Split | Alpha (`XS` – `XXL`) + Regular/Long |
+| **U.S. Polo Assn. (USPA)** | Body Circumference | Alpha (`S` – `XXL`) |
+| **Peter England** | ABFRL Neck / Garment Chest | Numeric Collar (`38` – `46`) |
+| **Allen Solly** | ABFRL Finished Garment Circumference | Numeric / Fit Split (`38` – `46`) |
 
 ---
 
-## 🚀 Running Locally
+## Tech Stack
+- **HTML5 & CSS3:** Responsive UI with custom styling and confidence indicators.
+- **Vanilla JavaScript (ES6):** Deterministic normalization engine, dynamic DOM selectors, and boundary-matching algorithms.
+- **Hosting:** GitHub Pages.
 
-Clone the repository and open `index.html` in your browser:
+---
 
-```bash
-git clone [https://github.com/shravanivu1207/SizeSync.git](https://github.com/shravanivu1207/SizeSync.git)
-cd SizeSync
-# Open index.html directly or launch via Live Server
+## How to Run Locally
+
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/your-username/apparel-sizing-engine.git](https://github.com/your-username/apparel-sizing-engine.git)
